@@ -23,4 +23,7 @@ spawn_path = NodePath("..")
 script = ExtResource("4_71j4m")
 network_player = ExtResource("5_qfnet")
 
-[node name="MainMenu" parent="." unique_id=478970130 instance=ExtResource("6_qfnet")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1640674092]
+zoom = Vector2(0.25, 0.25)
+
+[node name="MainMenu" parent="Camera2D" unique_id=478970130 instance=ExtResource("6_qfnet")]

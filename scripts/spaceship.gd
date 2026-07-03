@@ -14,12 +14,16 @@ var ship_direction = Vector2(1.0,0.0)
 var is_drifting := false
 
 @onready var weapon: Weapon = $Weapon
+@onready var camera = $Camera2D as Camera2D
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
 	MAX_ANGLE = deg_to_rad(MAX_ANGLE)
+	if is_multiplayer_authority(): 
+		camera.make_current()
+
 
 
 func update_direction(ship_direction: Vector2, target_direction: Vector2) -> Vector2:
