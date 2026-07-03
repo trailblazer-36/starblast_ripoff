@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cbl0qiuflv34p"]
+
+[ext_resource type="Script" uid="uid://c3fkpfok4aes2" path="res://scripts/world.gd" id="1_71j4m"]
+[ext_resource type="Script" uid="uid://bq6dsu4pppen1" path="res://scripts/asteroids.gd" id="2_qfnet"]
+[ext_resource type="PackedScene" uid="uid://d06empm5hf6ck" path="res://scenes/stupid_asteroid.tscn" id="3_i7141"]
+[ext_resource type="Script" uid="uid://5850b1gxryke" path="res://scripts/multiplayer_spawner.gd" id="4_71j4m"]
+[ext_resource type="PackedScene" uid="uid://cxmvidp4llh7b" path="res://scenes/spaceship.tscn" id="5_qfnet"]
+[ext_resource type="PackedScene" uid="uid://dhm0eey43kxij" path="res://scenes/main_menu.tscn" id="6_qfnet"]
+
+[node name="World" type="Node2D" unique_id=1636041005]
+script = ExtResource("1_71j4m")
+
+[node name="Asteroids" type="Node2D" parent="." unique_id=298220198]
+script = ExtResource("2_qfnet")
+asteroid_scene = ExtResource("3_i7141")
+n_asteroids = 100
+x_max = 4000
+y_max = 4000
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=594353763]
+_spawnable_scenes = PackedStringArray("uid://cxmvidp4llh7b")
+spawn_path = NodePath("..")
+script = ExtResource("4_71j4m")
+network_player = ExtResource("5_qfnet")
+
+[node name="MainMenu" parent="." unique_id=478970130 instance=ExtResource("6_qfnet")]

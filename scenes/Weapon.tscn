@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bp2tynd34u7uc"]
+
+[ext_resource type="Script" uid="uid://0axw6wx45xkc" path="res://scripts/weapon.gd" id="1_jkvh0"]
+[ext_resource type="PackedScene" uid="uid://d2x5v2in6q0gy" path="res://scenes/bullet.tscn" id="2_a813o"]
+
+[node name="Weapon" type="Node2D" unique_id=360083452]
+script = ExtResource("1_jkvh0")
+BulletScene = ExtResource("2_a813o")
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=630404969]

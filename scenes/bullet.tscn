@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d2x5v2in6q0gy"]
+
+[ext_resource type="Script" uid="uid://dhbv2fq2tgn5l" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="Texture2D" uid="uid://cvww0sbhkram6" path="res://sprites/New Piskel.png" id="2_l5glv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4vbm"]
+size = Vector2(8, 20)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_y25gk"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Area2D" type="Area2D" unique_id=1401563625]
+script = ExtResource("1_y25gk")
+SPEED = 2800
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1086799065]
+texture = ExtResource("2_l5glv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1586584687]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_t4vbm")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1277713922]
+replication_config = SubResource("SceneReplicationConfig_y25gk")

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cxmvidp4llh7b"]
+
+[ext_resource type="Script" uid="uid://bukgrsho2gv03" path="res://scripts/spaceship.gd" id="1_7g3nn"]
+[ext_resource type="Texture2D" uid="uid://bu72h5jqk5b5q" path="res://sprites/Shadow_X1.png" id="2_pmkdn"]
+[ext_resource type="PackedScene" uid="uid://bp2tynd34u7uc" path="res://scenes/Weapon.tscn" id="3_pmkdn"]
+[ext_resource type="Script" uid="uid://cjsy1n2ur6kav" path="res://scripts/ui.gd" id="4_v0rat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
+size = Vector2(113, 80.10417)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_v0rat"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Spaceship" type="CharacterBody2D" unique_id=559749091]
+rotation = 0.017453292
+slide_on_ceiling = false
+script = ExtResource("1_7g3nn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1142997601]
+scale = Vector2(4, 4)
+texture = ExtResource("2_pmkdn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1974437956]
+position = Vector2(-0.50024414, -0.017456055)
+scale = Vector2(0.90000004, 0.90000004)
+shape = SubResource("RectangleShape2D_aqk2v")
+
+[node name="Weapon" parent="." unique_id=360083452 instance=ExtResource("3_pmkdn")]
+position = Vector2(50, 0)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=94935375]
+script = ExtResource("4_v0rat")
+metadata/_custom_type_script = "uid://cjsy1n2ur6kav"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1529877822]
+replication_config = SubResource("SceneReplicationConfig_v0rat")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=667900175]
